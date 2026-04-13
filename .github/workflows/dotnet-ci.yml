@@ -1,0 +1,49 @@
+name: .NET CI Build
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master ]
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest  # Using Windows for full .NET Framework compatibility
+    
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+    
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v2
+    
+    - name: Restore NuGet packages
+      run: nuget restore POEpart1.sln
+      
+    - name: Build solution
+      run: msbuild POEpart1.sln /p:Configuration=${{ matrix.configuration }} /p:Platform="Any CPU" /verbosity:minimal
+    
+    - name: Run tests (if any)
+      run: |
+        # If you add unit tests later, uncomment:
+        # dotnet test POEpart1.sln --configuration ${{ matrix.configuration }} --no-build
+        echo "No tests configured yet"
+    
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      if: success()
+      with:
+        name: POEpart1-${{ matrix.configuration }}
+        path: |
+          POEpart1/bin/${{ matrix.configuration }}/
+          !**/*.pdb  # Exclude debug symbols if not needed
+        retention-days: 7
