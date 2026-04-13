@@ -1,12 +1,11 @@
-# 🔐 Cybersecurity Awareness Chatbot (C# Console Application)
+SECUREBOT
 
-## 📌 Project Overview
+THE OVERVIEW
+This project is a C# console-based cybersecurity chatbot that interacts with users and provides essential tips on staying safe online. It also includes a voice greeting feature, making the experience more interactive and engaging.
 
-This project is a **C# console-based cybersecurity chatbot** that interacts with users and provides essential tips on staying safe online. It also includes a **voice greeting feature**, making the experience more interactive and engaging.
 
----
 
-## 🎯 Purpose
+ Purpose
 
 The chatbot aims to:
 
@@ -15,23 +14,23 @@ The chatbot aims to:
 * Demonstrate basic C# programming concepts
 * Introduce multimedia integration (audio)
 
----
 
-## ⚙️ Features
 
-### 💬 Interactive Chat
+ Features
+
+ Interactive Chat
 
 * Continuous user interaction loop
 * Personalized responses using the user's name
 * Handles empty input safely
 
-### 🔊 Voice Greeting
+ Voice Greeting
 
 * Plays a welcome audio (`greeting.wav`) at startup
 * Enhances user experience with sound
 * Uses `SoundPlayer` from `System.Media`
 
-### 🛡️ Cybersecurity Topics Covered
+ Cybersecurity Topics Covered
 
 * Password security
 * Phishing attacks
@@ -41,7 +40,7 @@ The chatbot aims to:
 * VPN (Virtual Private Network)
 * Two-Factor Authentication (2FA)
 
-### 🚪 Exit Commands
+ Exit Commands
 
 Users can exit the chatbot by typing:
 
@@ -51,73 +50,29 @@ Users can exit the chatbot by typing:
 
 ---
 
-## 🧠 How It Works
+ How It Works
 
-### Chat System
+Chat System
 
 * The chatbot runs in a loop and waits for user input
 * Input is converted to lowercase for easy keyword matching
 * Uses `if-else` conditions to detect keywords
 * Responds with relevant cybersecurity advice
 
-### Voice Greeting System
 
-* When the program starts, it loads an audio file from:
 
-  ```
-  /Assets/greeting.wav
-  ```
-* The audio is played using:
+ Code Structure
 
-  ```csharp
-  SoundPlayer player = new SoundPlayer(path);
-  player.PlaySync();
-  ```
-* `PlaySync()` ensures the program waits until the audio finishes
-
----
-
-## 🧩 Code Structure
-
-### `UserInteraction` Class
+`UserInteraction` Class
 
 Handles chatbot communication:
 
 * Reads user input
 * Matches keywords
 * Displays responses
-
-### `VoiceGreeting` Class
-
-Handles audio playback:
-
-* Loads `.wav` file from project directory
-* Plays greeting sound
-* Includes error handling with `try-catch`
-
----
-
-## ▶️ How to Run
-
-1. Open the project in Visual Studio (or any C# IDE)
-2. Ensure the following structure exists:
-
-   ```
-   Project Folder
-   └── Assets
-       └── greeting.wav
-   ```
-3. Make sure you have a `User` class with a `Name` property
-4. Call `VoiceGreeting.PlayGreeting();` at program start
-5. Run the application
-6. Start chatting in the console
-
----
-
-## 💡 Example Interaction
-
-```
-(Audio plays)
+* 
+ Example Interaction
+ The Audio plays
 
 You: what is malware
 Bot: Malware is short for 'malicious software'. It refers to any program designed to harm or exploit a device.
@@ -127,35 +82,6 @@ Bot: You can ask me about passwords, phishing, malware, safe browsing, VPNs, and
 
 You: bye
 Bot: Goodbye John! Stay safe online.
-```
 
----
 
-## 🚀 Future Improvements
 
-* Add more advanced AI responses (NLP)
-* Support voice input/output
-* Add a graphical user interface (GUI)
-* Store chat history
-* Add multilingual support (e.g., French)
-
----
-
-## 🧑‍💻 Author
-
-Perfetia Kazadi Ndjibu
-
----
-
-## 📖 Notes
-
-This project demonstrates:
-
-* C# console programming
-* File handling
-* Audio integration
-* Basic cybersecurity awareness
-
----
-
-✨ *Stay safe online and keep building amazing projects!*
