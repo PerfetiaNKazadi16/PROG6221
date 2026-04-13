@@ -1,0 +1,42 @@
+name: .NET CI Build
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+    
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v2
+    
+    - name: Restore NuGet packages
+      run: nuget restore POEpart1/POEpart1.csproj
+      
+    - name: Build project
+      run: msbuild POEpart1/POEpart1.csproj /p:Configuration=${{ matrix.configuration }} /p:Platform="Any CPU" /verbosity:minimal
+    
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      if: success()
+      with:
+        name: POEpart1-${{ matrix.configuration }}
+        path: |
+          POEpart1/bin/${{ matrix.configuration }}/
+          !**/*.pdb
+        retention-days: 7
