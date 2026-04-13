@@ -1,0 +1,8 @@
+C:\Users\Pc\source\repos\POEpart1\POEpart1\bin\Debug\POEpart1.exe.config
+C:\Users\Pc\source\repos\POEpart1\POEpart1\bin\Debug\POEpart1.exe
+C:\Users\Pc\source\repos\POEpart1\POEpart1\bin\Debug\POEpart1.pdb
+C:\Users\Pc\source\repos\POEpart1\POEpart1\obj\Debug\POEpart1.csproj.AssemblyReference.cache
+C:\Users\Pc\source\repos\POEpart1\POEpart1\obj\Debug\POEpart1.csproj.CoreCompileInputs.cache
+C:\Users\Pc\source\repos\POEpart1\POEpart1\obj\Debug\POEpart1.exe
+C:\Users\Pc\source\repos\POEpart1\POEpart1\obj\Debug\POEpart1.pdb
+C:\Users\Pc\source\repos\POEpart1\POEpart1\bin\Debug\Assets\greeting.wav
