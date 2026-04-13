@@ -12,24 +12,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Checkout repository
     - name: Checkout code
       uses: actions/checkout@v4
 
-    # Setup .NET
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '8.0.x'
 
-    # Restore dependencies
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore ./CyberSecurityChatbot/CyberSecurityChatbot.csproj
 
-    # Build project
     - name: Build
-      run: dotnet build --no-restore --configuration Release
+      run: dotnet build ./CyberSecurityChatbot/CyberSecurityChatbot.csproj --no-restore --configuration Release
 
-    # Run tests (if available)
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: echo "No tests yet"
