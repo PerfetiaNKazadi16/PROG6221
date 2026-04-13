@@ -1,0 +1,52 @@
+name: .NET CI Build
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: List directory structure
+      run: |
+        dir
+        echo "---"
+        dir /s /b *.csproj
+      shell: cmd
+    
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+    
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v2
+    
+    - name: Find and restore NuGet packages
+      run: |
+        $csproj = Get-ChildItem -Recurse -Filter *.csproj | Select-Object -First 1
+        Write-Host "Found project file: $($csproj.FullName)"
+        nuget restore $csproj.FullName
+      shell: pwsh
+    
+    - name: Build project
+      run: |
+        $csproj = Get-ChildItem -Recurse -Filter *.csproj | Select-Object -First 1
+        msbuild $csproj.FullName /p:Configuration=${{ matrix.configuration }} /p:Platform="Any CPU" /verbosity:minimal
+      shell: pwsh
+    
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      if: success()
+      with:
+        name: POEpart1-${{ matrix.configuration }}
+        path: |
+          **/bin/${{ matrix.configuration }}/
+          !**/*.pdb
+        retention-days: 7
