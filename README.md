@@ -81,7 +81,7 @@ You: help
 Bot: You can ask me about passwords, phishing, malware, safe browsing, VPNs, and more!
 
 You: bye
-Bot: Goodbye John! Stay safe online.
+Bot: Goodbye John! Stay safe online
 
 <img width="1277" height="932" alt="image" src="https://github.com/user-attachments/assets/67d33537-806c-402d-a554-edf1b1782a77" />
 
