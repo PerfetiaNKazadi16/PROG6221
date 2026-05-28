@@ -85,4 +85,15 @@ Bot: Goodbye John! Stay safe online.
 
 <img width="1277" height="932" alt="image" src="https://github.com/user-attachments/assets/67d33537-806c-402d-a554-edf1b1782a77" />
 
+Branch 2 – WPF Version with Enhanced Features
+
+A separate branch (Branch 2) contains the second part of the POE where SecureBot has been converted to a WPF application. This version introduces:
+
+Responsive UI: Modern and visually appealing interface
+Interactive chatbot: Gives tips in real-time
+Sentiment detection: Adjusts responses based on the user's tone
+Improved user experience: Supports chat bubbles, dynamic scrolling, and voice integration
+
+Branch 2 provides a more professional and engaging version of SecureBot suitable for demonstration and deployment.
+
 
