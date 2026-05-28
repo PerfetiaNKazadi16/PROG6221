@@ -5,7 +5,7 @@ This project is a C# console-based cybersecurity chatbot that interacts with use
 
 
 
- Purpose
+ Purpose.
 
 The chatbot aims to:
 
