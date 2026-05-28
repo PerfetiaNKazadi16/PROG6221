@@ -24,7 +24,7 @@ The chatbot aims to:
 * Personalized responses using the user's name
 * Handles empty input safely
 
- Voice Greeting
+ Voice Greeting:
 
 * Plays a welcome audio (`greeting.wav`) at startup
 * Enhances user experience with sound
